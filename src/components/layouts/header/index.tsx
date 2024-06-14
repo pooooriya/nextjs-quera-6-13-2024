@@ -1,6 +1,7 @@
 import Button from "@/components/basic/button";
 import Container from "@/components/basic/container";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Header = () => {
@@ -9,12 +10,14 @@ const Header = () => {
       <Container>
         <div className="flex justify-between items-center">
           <div>
-            <Image
-              src="https://quera.org/static/images/logo/logo-quera-heavy.2-1c1287ee3575.svg"
-              alt="quera logo"
-              width={100}
-              height={100}
-            />
+            <Link href="/">
+              <Image
+                src="https://quera.org/static/images/logo/logo-quera-heavy.2-1c1287ee3575.svg"
+                alt="quera logo"
+                width={100}
+                height={100}
+              />
+            </Link>
           </div>
           <div>
             <Button>ورود</Button>
