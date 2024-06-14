@@ -9,9 +9,9 @@ const pallet: any = {
 };
 
 // factory design pattern
-const Button = ({ variant = "contained", children }: any) => {
+const Button = ({ variant = "contained", children, ...rest }: any) => {
   return (
-    <button className={classNames(pallet.base, pallet[variant])}>
+    <button className={classNames(pallet.base, pallet[variant])} {...rest}>
       {children}
     </button>
   );

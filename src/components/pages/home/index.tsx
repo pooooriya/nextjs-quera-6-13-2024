@@ -1,17 +1,26 @@
 import Card from "@/components/basic/card";
 import Container from "@/components/basic/container";
+import { useProductsQuery } from "@/services/queries/useProductsQuery";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
-const HomePage = ({ products }: any) => {
+const HomePage = () => {
+  const router = useRouter();
+  const { data, isLoading } = useProductsQuery();
+  console.log("salam");
+  if (isLoading) return <>loading ...</>;
   return (
     <Container>
       <div className="flex flex-wrap">
-        {products.map((item: any) => (
+        {data.map((item: any) => (
           <div className="w-3/12 p-2" key={item.title}>
-            <Link href={`/product/${item.id}`}>
-              <Card {...item} />
-            </Link>
+            <Card
+              {...item}
+              onClick={() => {
+                router.push(`/product/${item.id}`);
+              }}
+            />
           </div>
         ))}
       </div>
